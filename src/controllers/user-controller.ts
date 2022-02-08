@@ -1,5 +1,6 @@
 import { getUser } from '../services/user-service';
 import { getLastMatchIdsWithUserName, getLeagueDetailWithUsername } from '../utils/chain';
+import { getChampionMasteries } from './../services/champions-service';
 
 export const userInfoController = async (req, res) => {
   const { username } = req.params;
@@ -17,4 +18,10 @@ export const userMatchIdsController = async (req, res) => {
   const { username } = req.params;
   const leagueDetail = await getLastMatchIdsWithUserName(username);
   res.send(leagueDetail);
+};
+export const userChampionMasteriesController = async (req, res) => {
+  const { username } = req.params;
+  const userInfo = await getUser(username);
+  const championMasteries = await getChampionMasteries(userInfo.id);
+  res.send(championMasteries);
 };
