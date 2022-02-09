@@ -12,3 +12,4 @@ export const getLastMatchIdsWithUserName = async (username: string) => {
   const userInfo = await getUser(username);
   return getLastMatchesWithPuuid(userInfo.puuid);
 };
+

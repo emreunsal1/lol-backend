@@ -1,3 +1,4 @@
+import { getMatchDetailWithMatcId } from '../services/match-service';
 import { getUser } from '../services/user-service';
 import { getLastMatchIdsWithUserName, getLeagueDetailWithUsername } from '../utils/chain';
 import { getChampionMasteries } from './../services/champions-service';
@@ -24,4 +25,10 @@ export const userChampionMasteriesController = async (req, res) => {
   const userInfo = await getUser(username);
   const championMasteries = await getChampionMasteries(userInfo.id);
   res.send(championMasteries);
+};
+
+export const userMatchDetailController = async (req, res) => {
+  const { matchid } = req.params;
+  const matchDetail = await getMatchDetailWithMatcId(matchid);
+  res.send(matchDetail);
 };
