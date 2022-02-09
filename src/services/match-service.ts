@@ -18,3 +18,11 @@ export const getMatchDetailWithMatcId = async (matchId:string):Promise<string[]>
   const response = await matchService.get(`/lol/match/v5/matches/${matchId}`);
   return response.data;
 };
+
+export const getLastTenMatchWidthMatchIds = async (lastMatchIds:string[]) => {
+  const abc = lastMatchIds.map(async (matchId) => {
+    const response = await matchService.get(`/lol/match/v5/matches/${matchId}`);
+    const a = [response.data];
+  });
+  console.log(abc);
+};
