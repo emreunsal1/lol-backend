@@ -20,9 +20,10 @@ export const getMatchDetailWithMatcId = async (matchId:string):Promise<string[]>
 };
 
 export const getLastTenMatchWidthMatchIds = async (lastMatchIds:string[]) => {
-  const abc = lastMatchIds.map(async (matchId) => {
-    const response = await matchService.get(`/lol/match/v5/matches/${matchId}`);
-    const a = [response.data];
+  const responsePromise = lastMatchIds.map((matchId) => {
+    return matchService.get(`/lol/match/v5/matches/${matchId}`);
   });
-  console.log(abc);
+  const response = await Promise.all(responsePromise);
+  const data = response.map((item) => item.data);
+  return data;
 };

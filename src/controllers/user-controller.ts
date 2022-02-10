@@ -35,7 +35,8 @@ export const userMatchDetailController = async (req, res) => {
 };
 
 export const userLastTenMathesController = async (req, res) => {
-  const matchIds = req.body;
-  const matchDetais = await getLastTenMatchWidthMatchIds(matchIds);
-  res.send(matchDetais);
+  const { matchids } = req.query;
+  const ids = matchids.split(',');
+  const matchDetails = await getLastTenMatchWidthMatchIds(ids);
+  res.send(matchDetails);
 };

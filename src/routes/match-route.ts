@@ -3,6 +3,6 @@ import { userLastTenMathesController, userMatchDetailController } from '../contr
 const matchRouter = Router();
 
 matchRouter.get('/detail/:matchid', userMatchDetailController);
-matchRouter.post('/last/matches', userLastTenMathesController);
+matchRouter.get('/last/', userLastTenMathesController);
 
 export default matchRouter;
