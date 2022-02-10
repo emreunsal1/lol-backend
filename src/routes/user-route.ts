@@ -4,11 +4,8 @@ import { userChampionMasteriesController, userInfoController, userLeagueControll
 const userRouter = Router();
 
 userRouter.get('/:username', userInfoController);
-
 userRouter.get('/:username/league', userLeagueController);
-
 userRouter.get('/:username/matches', userMatchIdsController);
-
 userRouter.get('/:username/masteries', userChampionMasteriesController);
 
 export default userRouter;

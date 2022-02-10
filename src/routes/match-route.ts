@@ -1,4 +1,4 @@
-import Router from 'express';
+import { Router } from 'express';
 import { userLastTenMathesController, userMatchDetailController } from '../controllers/user-controller';
 const matchRouter = Router();
 

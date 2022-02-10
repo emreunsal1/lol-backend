@@ -1,11 +1,10 @@
-import Router from 'express';
-import { freeChampionsIdsController } from '../controllers/global-controller';
-import { allChampionsInfosController } from './../controllers/global-controller';
-const platformRouter = Router();
+import { Router } from 'express';
+import { freeChampionsIdsController, allChampionsInfosController } from '../controllers/champion-controller';
 
-platformRouter.get('/freechampionsids', freeChampionsIdsController);
+const championsRouter = Router();
 
-platformRouter.get('/allchampionsinfos', allChampionsInfosController);
+championsRouter.get('/', allChampionsInfosController);
+championsRouter.get('/free', freeChampionsIdsController);
 
-export default platformRouter;
+export default championsRouter;
 
