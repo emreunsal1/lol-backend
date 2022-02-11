@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This is a sample server LOL API server.  You can find out more about     LOL API at (https://github.com/emreunsal1/lol-backend). You can get your API key from (https://developer.riotgames.com/) <br> Contact: https://www.linkedin.com/in/emreunsal111/",
+    "description": "This is a proxy server LOL API. You can find the repo fo this project (https://github.com/emreunsal1/lol-backend).<br><br> Contact: https://www.linkedin.com/in/emreunsal111/",
     "version": "1.0.0",
     "title": "LoL API",
     "contact": {
@@ -48,7 +48,7 @@
     "/user/{username}/masteries": {
       "get": {
         "tags": [
-          "Character Masteries"
+          "User Info"
         ],
         "summary": "Log User Character Masteries",
         "description": "",
@@ -79,7 +79,7 @@
     "/user/{username}/matches": {
       "get": {
         "tags": [
-          "User Last Ten Match IDs"
+          "User Info"
         ],
         "summary": "Log User Last Ten Matches Id",
         "description": "",
@@ -107,41 +107,10 @@
         }
       }
     },
-    "/match/detail/{matchid}": {
-      "get": {
-        "tags": [
-          "User Match Detail"
-        ],
-        "summary": "Log User Match Detail",
-        "description": "",
-        "operationId": "matchDetail",
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "name": "matchid",
-            "in": "path",
-            "description": "The match id for match detail ",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation"
-          },
-          "400": {
-            "description": "Invalid username/password supplied"
-          }
-        }
-      }
-    },
     "/user/{username}/league": {
       "get": {
         "tags": [
-          "User League Detail"
+          "User Info"
         ],
         "summary": "Log User League Detail",
         "description": "",
@@ -172,9 +141,9 @@
     "/match/last/": {
       "get": {
         "tags": [
-          "User Last Ten Match Detail"
+          "Match"
         ],
-        "summary": "Log User Last Ten Matches",
+        "summary": "Log User Last 10 Matches",
         "description": "",
         "operationId": "userLastTenMatch",
         "produces": [
@@ -200,17 +169,26 @@
         }
       }
     },
-    "/champions/free": {
+    "/match/detail/{matchid}": {
       "get": {
         "tags": [
-          "This the Week Free Champions"
+          "Match"
         ],
-        "summary": "Log the this week free champions",
+        "summary": "Log User Match Detail",
         "description": "",
-        "operationId": "freeChampion",
+        "operationId": "matchDetail",
         "produces": [
           "application/json",
           "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "matchid",
+            "in": "path",
+            "description": "The match id for match detail ",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -225,7 +203,7 @@
     "/champions/": {
       "get": {
         "tags": [
-          "All Champions"
+          "Champions"
         ],
         "summary": "Log All Champions",
         "description": "",
@@ -244,10 +222,32 @@
         }
       }
     },
+    "/champions/free": {
+      "get": {
+        "tags": [
+          "Champions"
+        ],
+        "summary": "Log the this week free champions",
+        "description": "",
+        "operationId": "freeChampion",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
     "/league/list/{matchtype}/{ranked}/{level}": {
       "get": {
         "tags": [
-          "User list in league"
+          "League"
         ],
         "summary": "Log All Champions",
         "description": "",
