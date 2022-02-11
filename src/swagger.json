@@ -154,7 +154,7 @@
           {
             "name": "matchids",
             "in": "query",
-            "description": "The Match ids for last ten matches detail ",
+            "description": "The Match ids for last ten matches detail <br> <br> TR_11231545,TR_12513517,...  etc.",
             "required": true,
             "type": "string"
           }
