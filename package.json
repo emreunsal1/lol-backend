@@ -35,6 +35,8 @@
     "express": "^4.17.2",
     "jest": "^26.5.3",
     "nodemon": "^2.0.15",
-    "ts-jest": "^26.4.1"
+    "swagger-ui-express": "^4.3.0",
+    "ts-jest": "^26.4.1",
+    "yamljs": "^0.3.0"
   }
 }

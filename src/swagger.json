@@ -1,0 +1,293 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample server LOL API server.  You can find out more about     LOL API at (https://github.com/emreunsal1/lol-backend). You can get your API key from (https://developer.riotgames.com/) <br> Contact: https://www.linkedin.com/in/emreunsal111/",
+    "version": "1.0.0",
+    "title": "LoL API",
+    "contact": {
+      "email": "unsalemre111@gmail.com"
+    }
+  },
+  "host": "leagueoflegends-backend.herokuapp.com",
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/user/{username}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Logs user into the system",
+        "description": "",
+        "operationId": "loginUser",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The user name for login",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/user/{username}/masteries": {
+      "get": {
+        "tags": [
+          "Character Masteries"
+        ],
+        "summary": "Log User Character Masteries",
+        "description": "",
+        "operationId": "champion masteries",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The user name for character masteries",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/user/{username}/matches": {
+      "get": {
+        "tags": [
+          "User Last Ten Match IDs"
+        ],
+        "summary": "Log User Last Ten Matches Id",
+        "description": "",
+        "operationId": "lastTenMatch",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The user name for last ten match ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/match/detail/{matchid}": {
+      "get": {
+        "tags": [
+          "User Match Detail"
+        ],
+        "summary": "Log User Match Detail",
+        "description": "",
+        "operationId": "matchDetail",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "matchid",
+            "in": "path",
+            "description": "The match id for match detail ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/user/{username}/league": {
+      "get": {
+        "tags": [
+          "User League Detail"
+        ],
+        "summary": "Log User League Detail",
+        "description": "",
+        "operationId": "userLeague",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The user name for user league ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/match/last/": {
+      "get": {
+        "tags": [
+          "User Last Ten Match Detail"
+        ],
+        "summary": "Log User Last Ten Matches",
+        "description": "",
+        "operationId": "userLastTenMatch",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "matchids",
+            "in": "query",
+            "description": "The Match ids for last ten matches detail ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/champions/free": {
+      "get": {
+        "tags": [
+          "This the Week Free Champions"
+        ],
+        "summary": "Log the this week free champions",
+        "description": "",
+        "operationId": "freeChampion",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/champions/": {
+      "get": {
+        "tags": [
+          "All Champions"
+        ],
+        "summary": "Log All Champions",
+        "description": "",
+        "operationId": "allChampions",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/league/list/{matchtype}/{ranked}/{level}": {
+      "get": {
+        "tags": [
+          "User list in league"
+        ],
+        "summary": "Log All Champions",
+        "description": "",
+        "operationId": "Leagueuserlinst",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "matchtype",
+            "in": "path",
+            "description": "(RANKED_SOLO_5x5, RANKED_FLEX_SR, RANKED_FLEX_TT)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ranked",
+            "in": "path",
+            "description": "(PLATINUM, GOLD, DIAMOND, SILVER, BRONZE, IRON) ",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "level",
+            "in": "path",
+            "description": "max level 5 ",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    }
+  }
+}
