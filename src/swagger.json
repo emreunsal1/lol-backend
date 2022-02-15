@@ -114,6 +114,37 @@
         }
       }
     },
+    "/user/{username}/last-matches/": {
+      "get": {
+        "tags": [
+          "User Info"
+        ],
+        "summary": "Log User Last 10 Matches",
+        "description": "",
+        "operationId": "userLastTenMatch",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The user name of user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
     "/user/{username}/league": {
       "get": {
         "tags": [
@@ -131,37 +162,6 @@
             "name": "username",
             "in": "path",
             "description": "The user name for user league ",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation"
-          },
-          "400": {
-            "description": "Invalid username/password supplied"
-          }
-        }
-      }
-    },
-    "/match/last/": {
-      "get": {
-        "tags": [
-          "Match"
-        ],
-        "summary": "Log User Last 10 Matches",
-        "description": "",
-        "operationId": "userLastTenMatch",
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "name": "matchids",
-            "in": "query",
-            "description": "The Match ids for last ten matches detail <br> <br> TR_11231545,TR_12513517,...  etc.",
             "required": true,
             "type": "string"
           }

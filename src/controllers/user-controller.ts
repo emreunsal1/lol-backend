@@ -37,9 +37,7 @@ export const userMatchDetailController = async (req, res) => {
 
 export const userLastTenMathesController = async (req, res) => {
   const { username } = req.params;
-
   const matchIds = await getLastMatchIdsWithUserName(username);
-
   const matchDetails = await getLastTenMatchWidthMatchIds(matchIds);
   res.send(matchDetails);
 };
