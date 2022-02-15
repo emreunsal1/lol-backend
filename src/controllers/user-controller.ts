@@ -25,8 +25,8 @@ export const userChampionMasteriesController = async (req, res) => {
   const { username, count } = req.params;
   const userInfo = await getUser(username);
   const championMasteries = await getChampionMasteries(userInfo.id);
-  championMasteries.slice(0, count);
-  res.send(championMasteries);
+  const data = championMasteries.slice(0, count);
+  res.send(data);
 };
 
 export const userMatchDetailController = async (req, res) => {
