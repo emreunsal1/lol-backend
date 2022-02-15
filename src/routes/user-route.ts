@@ -6,6 +6,6 @@ const userRouter = Router();
 userRouter.get('/:username', userInfoController);
 userRouter.get('/:username/league', userLeagueController);
 userRouter.get('/:username/matches', userMatchIdsController);
-userRouter.get('/:username/masteries', userChampionMasteriesController);
+userRouter.get('/:username/masteries/:count', userChampionMasteriesController);
 
 export default userRouter;

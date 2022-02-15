@@ -45,7 +45,7 @@
         }
       }
     },
-    "/user/{username}/masteries": {
+    "/user/{username}/masteries{count}": {
       "get": {
         "tags": [
           "User Info"
@@ -62,6 +62,13 @@
             "name": "username",
             "in": "path",
             "description": "The user name for character masteries",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "count",
+            "in": "path",
+            "description": "how many data do you want to come",
             "required": true,
             "type": "string"
           }

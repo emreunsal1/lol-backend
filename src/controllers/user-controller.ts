@@ -22,9 +22,10 @@ export const userMatchIdsController = async (req, res) => {
   res.send(leagueDetail);
 };
 export const userChampionMasteriesController = async (req, res) => {
-  const { username } = req.params;
+  const { username, count } = req.params;
   const userInfo = await getUser(username);
   const championMasteries = await getChampionMasteries(userInfo.id);
+  championMasteries.slice(0, count);
   res.send(championMasteries);
 };
 
