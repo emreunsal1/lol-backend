@@ -18,8 +18,8 @@ export const userLeagueController = async (req, res) => {
 
 export const userMatchIdsController = async (req, res) => {
   const { username } = req.params;
-  const leagueDetail = await getLastMatchIdsWithUserName(username);
-  res.send(leagueDetail);
+  const matchIds = await getLastMatchIdsWithUserName(username);
+  res.send(matchIds);
 };
 export const userChampionMasteriesController = async (req, res) => {
   const { username, count } = req.params;
@@ -36,8 +36,10 @@ export const userMatchDetailController = async (req, res) => {
 };
 
 export const userLastTenMathesController = async (req, res) => {
-  const { matchids } = req.query;
-  const ids = matchids.split(',');
-  const matchDetails = await getLastTenMatchWidthMatchIds(ids);
+  const { username } = req.params;
+
+  const matchIds = await getLastMatchIdsWithUserName(username);
+
+  const matchDetails = await getLastTenMatchWidthMatchIds(matchIds);
   res.send(matchDetails);
 };
