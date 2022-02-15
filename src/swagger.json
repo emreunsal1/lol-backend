@@ -45,7 +45,7 @@
         }
       }
     },
-    "/user/{username}/masteries{count}": {
+    "/user/{username}/masteries/{count}": {
       "get": {
         "tags": [
           "User Info"
