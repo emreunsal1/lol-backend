@@ -15,33 +15,53 @@ export const userInfoController = async (req, res) => {
 };
 
 export const userLeagueController = async (req, res) => {
-  const { username } = req.params;
-  const leagueDetail = await getLeagueDetailWithUsername(username);
-  res.send(leagueDetail);
+  try {
+    const { username } = req.params;
+    const leagueDetail = await getLeagueDetailWithUsername(username);
+    res.send(leagueDetail);
+  } catch (error) {
+    res.send(error);
+  }
 };
 
 export const userMatchIdsController = async (req, res) => {
-  const { username } = req.params;
-  const matchIds = await getLastMatchIdsWithUserName(username);
-  res.send(matchIds);
+  try {
+    const { username } = req.params;
+    const matchIds = await getLastMatchIdsWithUserName(username);
+    res.send(matchIds);
+  } catch (error) {
+    res.send(error.message);
+  }
 };
 export const userChampionMasteriesController = async (req, res) => {
-  const { username, count } = req.params;
-  const userInfo = await getUser(username);
-  const championMasteries = await getChampionMasteries(userInfo.id);
-  const data = championMasteries.slice(0, count);
-  res.send(data);
+  try {
+    const { username, count } = req.params;
+    const userInfo = await getUser(username);
+    const championMasteries = await getChampionMasteries(userInfo.id);
+    const data = championMasteries.slice(0, count);
+    res.send(data);
+  } catch (error) {
+    res.send(error.message);
+  }
 };
 
 export const userMatchDetailController = async (req, res) => {
-  const { matchid } = req.params;
-  const matchDetail = await getMatchDetailWithMatcId(matchid);
-  res.send(matchDetail);
+  try {
+    const { matchid } = req.params;
+    const matchDetail = await getMatchDetailWithMatcId(matchid);
+    res.send(matchDetail);
+  } catch (error) {
+    res.send(error.message);
+  }
 };
 
 export const userLastTenMathesController = async (req, res) => {
-  const { username } = req.params;
-  const matchIds = await getLastMatchIdsWithUserName(username);
-  const matchDetails = await getLastTenMatchWidthMatchIds(matchIds);
-  res.send(matchDetails);
+  try {
+    const { username } = req.params;
+    const matchIds = await getLastMatchIdsWithUserName(username);
+    const matchDetails = await getLastTenMatchWidthMatchIds(matchIds);
+    res.send(matchDetails);
+  } catch (error) {
+    res.send(error.message);
+  }
 };
