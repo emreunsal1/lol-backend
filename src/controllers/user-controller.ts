@@ -5,9 +5,13 @@ import { getChampionMasteries } from './../services/champions-service';
 import { getLastTenMatchWidthMatchIds } from './../services/match-service';
 
 export const userInfoController = async (req, res) => {
-  const { username } = req.params;
-  const response = await getUser(username);
-  res.send(response);
+  try {
+    const { username } = req.params;
+    const response = await getUser(username);
+    res.send(response);
+  } catch (error) {
+    res.status(404).send('User Not Found');
+  }
 };
 
 export const userLeagueController = async (req, res) => {
