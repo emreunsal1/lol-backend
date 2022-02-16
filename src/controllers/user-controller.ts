@@ -20,7 +20,11 @@ export const userLeagueController = async (req, res) => {
     const leagueDetail = await getLeagueDetailWithUsername(username);
     res.send(leagueDetail);
   } catch (error) {
+<<<<<<< HEAD
     res.send(error.message);
+=======
+    res.send(error);
+>>>>>>> b075d7d52a173c9a484b327cedbf9233ecd9ea08
   }
 };
 
