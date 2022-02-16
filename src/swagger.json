@@ -251,6 +251,37 @@
         }
       }
     },
+    "/champions/icon/{name}.png": {
+      "get": {
+        "tags": [
+          "Champions"
+        ],
+        "summary": "Log Character Profile Icon",
+        "description": "",
+        "operationId": "CharacterIcon",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The Character Name for Character Icon (Kaisa or Aatrox) ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
     "/league/list/{matchtype}/{ranked}/{level}": {
       "get": {
         "tags": [

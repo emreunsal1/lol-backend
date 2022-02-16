@@ -18,3 +18,8 @@ export const getAllChampionsInfo = async () => {
   const response = await axios.get('http://ddragon.leagueoflegends.com/cdn/12.3.1/data/en_US/champion.json');
   return response.data;
 };
+
+export const getChampionsProfileIcon = async (characterName:string) => {
+  const response = await axios.get(`https://ddragon.leagueoflegends.com/cdn/12.4.1/img/champion/${characterName}.png`);
+  return response.data;
+};

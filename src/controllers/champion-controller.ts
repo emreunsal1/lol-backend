@@ -1,5 +1,6 @@
 import { getAllChampionsInfo, getTheWeekFreeChampionIds } from '../services/platform-service';
 import { getChampionsFromResponse } from '../utils/champion';
+import { getChampionsProfileIcon } from './../services/platform-service';
 
 export const freeChampionsIdsController = async (req, res) => {
   const { freeChampionIds } = await getTheWeekFreeChampionIds();
@@ -19,5 +20,12 @@ export const allChampionsInfosController = async (req, res) => {
   const result = getChampionsFromResponse(response.data);
 
   res.send(result);
+};
+
+export const getChampionProfileIconController = async (req, res) => {
+  const { name } = req.params;
+  const response = await getChampionsProfileIcon(name);
+  console.log(response);
+  res.send(response);
 };
 
