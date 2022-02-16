@@ -2,21 +2,29 @@ import { getAllChampionsInfo, getTheWeekFreeChampionIds } from '../services/plat
 import { getChampionsFromResponse } from '../utils/champion';
 
 export const freeChampionsIdsController = async (req, res) => {
-  const { freeChampionIds } = await getTheWeekFreeChampionIds();
-  const { data } = await getAllChampionsInfo();
+  try {
+    const { freeChampionIds } = await getTheWeekFreeChampionIds();
+    const { data } = await getAllChampionsInfo();
 
-  const keyMap = {};
-  Object.entries(data).forEach((champ: any) => {
-    keyMap[champ[1].key] = champ[1];
-  });
+    const keyMap = {};
+    Object.entries(data).forEach((champ: any) => {
+      keyMap[champ[1].key] = champ[1];
+    });
 
-  const result = freeChampionIds.map(id => keyMap[id]);
-  res.send(result);
+    const result = freeChampionIds.map(id => keyMap[id]);
+    res.send(result);
+  } catch (error) {
+    res.send(error.message);
+  }
 };
 
 export const allChampionsInfosController = async (req, res) => {
-  const response = await getAllChampionsInfo();
-  const result = getChampionsFromResponse(response.data);
+  try {
+    const response = await getAllChampionsInfo();
+    const result = getChampionsFromResponse(response.data);
 
-  res.send(result);
+    res.send(result);
+  } catch (error) {
+    res.send(error.message);
+  }
 };
